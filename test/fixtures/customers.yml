@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+sarah: # valid customer
+  first_name: Sarah
+  last_name: Jones
+  username: sgf55
+
+thomas: # must not clash with Trevor
+  first_name: Thomas
+  last_name: Smith
+  username: smithy
+
+yasmine: # invalid customer
+  first_name: Yasmine
+  last_name:
+  username: lotus231
+
+trevor: # must not clash with Thomas
+  first_name: Trevor
+  last_name: Smith
+  username: smithy
