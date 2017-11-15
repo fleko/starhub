@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer: sarah
+  product: monopoly
+  rating: 2
+  comment: MyText
+
+two:
+  customer: sarah
+  product: backgammon
+  rating: 2
+  comment: MyText
+
+three:
+  customer: thomas
+  product: backgammon
+  rating: 4
+  comment: MyText
+
+four:
+  customer: sarah
+  product: duke
+  rating: 5
+  comment: MyText
+
+five:
+  customer: thomas
+  product: monopoly
+  rating: 3
+  comment: MyText

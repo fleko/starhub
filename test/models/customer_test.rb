@@ -5,6 +5,7 @@ describe Customer do
   let(:sarah) { customers(:sarah) }
   let(:trevor) { customers(:trevor) }
   let(:yasmine) { customers(:yasmine) }
+  let(:thomas) { customers(:thomas) }
 
   describe 'validations' do
     it 'is a valid customer' do
@@ -19,6 +20,20 @@ describe Customer do
     it 'is an invalid customer because of no last name' do
       expect(yasmine).must_be :invalid?
       expect(yasmine.errors[:last_name]).must_include "can't be blank"
+    end
+  end
+
+  describe 'has_reviews' do
+    it 'sarah should have many reviews' do
+      expect(sarah.reviews.size).must_equal 3
+    end
+
+    it 'thomas should have many reviews' do
+      expect(thomas.reviews.size).must_equal 2
+    end
+
+    it 'yasmine should have no reviews' do
+      expect(yasmine.reviews.size).must_equal 0
     end
   end
 
