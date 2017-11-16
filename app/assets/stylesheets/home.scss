@@ -1,3 +1,86 @@
-// Place all the styles related to the home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.home {
+  table {
+    border-collapse: collapse;
+  }
+
+  table tr td {
+    padding: 5px;
+    vertical-align: top;
+  }
+
+  .product_image {
+    width:  120px;
+    height: 140px;
+  }
+
+  .product_description {
+    width: 40%;
+
+    dl {
+      margin: 5;
+    }
+
+    dt {
+      color:        DarkSlateGrey;
+      font-weight:  bold;
+      font-size:    larger;
+    }
+
+    dd {
+      margin: 5;
+    }
+  }
+
+  .product_actions {
+    font-size:    x-medium;
+    text-align:   right;
+    vertical-align: bottom;
+    padding-left: 1em;
+  }
+
+  .even_line {
+    background:   BurlyWood;
+  }
+
+
+  .odd_line {
+    background:   LightBlue;
+  }
+
+  .rating_image {
+    width:  20px;
+    height: 20px;
+  }
+
+  .paddingColumns td
+  {
+      padding:0 35px 0 35px;
+  }
+
+  p.to_left {
+       text-align:left;
+   }
+  span.to_right {
+     float:right;
+   }
+
+   .half_line {
+    width:  70%;
+   }
+
+  .flash {
+     animation-name: flash;
+      animation-duration: 0.5s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      animation-direction: alternate;
+      animation-play-state: running;
+  }
+
+  @keyframes flash {
+      from {color: green;}
+      to {color: black;}
+  }
+
+
+}

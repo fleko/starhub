@@ -1,2 +1,82 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>Starhub Products</h1>
+
+<div class="half_line">
+  <p class="to_left">
+      Logged in as: <%= current_customer.username %>
+      <span id="review_notification" class="to_right flash"></span>
+  </p>
+</div>
+
+<br>
+<br>
+
+<table>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr class="<%= cycle('odd_line', 'even_line') %>">
+
+      <td>
+        <%= image_tag("#{product.code}.jpg", alt: "#{product.name}", class: 'product_image') %>
+      </td>
+      <td class='product_description'>
+        <dl>
+          <dt><%= product.name %></dt>
+          <dt><%= product.category%></dt>
+        </dl>
+      </td>
+      <td>
+        <table class='paddingColumns'>
+          <tr>
+            <th>Reviews</th>
+            <th>Issues</th>
+          </tr>
+          <tr>
+            <td>
+              <% product.average_ratings.times do %>
+                <%= image_tag('heart.png', alt: 'heart', class: 'rating_image') %>
+              <% end %>
+            </td>
+            <td>
+              <% issue_ratings(product.issue_count).times do %>
+                <%= image_tag('warning.png', alt: 'warning', class: 'rating_image') %>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+
+            <%= link_to 'see all Reviews', product_reviews_path(product) %>
+            </td>
+            <td>
+              <%= link_to 'See all Issues', product_issues_path(product) %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= link_to 'Add a Review', new_product_review_path(product) %>
+
+            </td>
+            <td>
+              <%= link_to 'Report an Issue',new_product_issue_path(product) %>
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td></td>
+      <td class='product_actions'>
+      <!-- we would enable these links only for admininstrators, not customers-->
+        <%= link_to_if false, 'Edit', edit_product_path(product) %>
+        <%= link_to_if false, 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<!-- we would enable this link only for admininstrators, not customers-->
+<%= link_to_if false, 'New Product', new_product_path, error: "Flash message" %>
+
+<br>
+<%= link_to "Log out", destroy_customer_session_path, method: :delete %>

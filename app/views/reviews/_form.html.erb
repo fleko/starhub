@@ -1,0 +1,28 @@
+<%= form_for([@review.product, @review]) do |f| %>
+  <% if review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+      <ul>
+      <% review.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= f.label :rating %>
+    <%= f.select :rating, %w(1 2 3 4 5), prompt: '1 is worst, 5 is best' %>
+  </div>
+  <div class="field">
+  <%= f.label :comment %><br>
+  <%= f.text_area :comment, rows: 10, cols: 60 %>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

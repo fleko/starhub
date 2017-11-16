@@ -1,0 +1,12 @@
+<p>
+  <b>Rating:</b>
+  <%= @review.rating %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%= @review.comment %>
+</p>
+
+<%= link_to 'Edit', edit_product_review_path(@review.product, @review) %>
+<%= link_to 'Back', product_reviews_path(@review.product) %>
