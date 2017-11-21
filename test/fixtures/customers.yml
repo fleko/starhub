@@ -3,7 +3,7 @@
 sarah: # valid customer
   first_name: Sarah
   last_name: Jones
-  username: sgf55
+  username: sarky
   email: sarah@gmail.com
 
 thomas: # must not clash with Trevor

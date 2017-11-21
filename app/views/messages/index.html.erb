@@ -1,0 +1,23 @@
+<h1>Messages for <%= @mailbox %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="10"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <th>From</th>
+      <th>Content</th>
+    </tr>
+    <% @messages.each do |msg| %>
+      <tr>
+        <td><%= msg['originator'] %></td>
+        <td><%= msg['content'] %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Back', root_path %> 

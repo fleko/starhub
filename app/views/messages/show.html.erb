@@ -1,0 +1,11 @@
+<p>
+  <b>Recipient:</b>
+  <%= @message.fetch(:recipient) %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @message.fetch(:content) %>
+</p>
+
+<%= link_to 'Back', root_path %> 

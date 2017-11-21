@@ -8,5 +8,27 @@
   <%= @review.comment %>
 </p>
 
-<%= link_to 'Edit', edit_product_review_path(@review.product, @review) %>
-<%= link_to 'Back', product_reviews_path(@review.product) %>
+
+<span class="action_1">
+  <%= link_to 'Back', product_reviews_path(@review.product) %>
+</span>
+<% if current_customer.id == @review.customer.id %>
+  <span class="action_2">
+    <%= link_to 'Edit', edit_product_review_path(@review.product, @review) %>
+  </span>
+  <% else %>
+  <span class="action_3">
+    <%= link_to(image_tag("mail.png"),
+                    messages_new_path(params: {originator: current_customer,
+                                              recipient: @review.customer}),
+                    title: 'Send message to the reviewer',
+                   data: { confirm: "You want to message the reviewer?" }) %>
+  </span>
+<% end %>
+
+<span class="action_4">
+  <%= link_to(image_tag("mailbox.png"),
+                  messages_index_path(params: {mailbox: current_customer}),
+                  title: 'Read new messages',
+                 data: { confirm: "You want to read new messages?" }) %>
+</span>

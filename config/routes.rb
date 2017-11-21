@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  post 'messages/create'
+
+  get 'messages/new'
+
+  get 'messages/index'
+
   get 'home/index'
 
   devise_for :customers, controllers: { registrations: 'registrations' }

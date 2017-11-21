@@ -1,0 +1,14 @@
+<%= form_tag "/messages/create" do %>
+    <%= hidden_field_tag 'message[originator]', originator  %>
+    <%= label_tag 'To:  ', nil, class: 'field' %>
+    <%= text_field_tag 'message[recipient]', recipient %>
+    <br>
+    <br>
+    <%= label_tag 'content', nil, class: 'field' %>
+    <br>
+    <%= text_area_tag 'message[content]', 'your message here', rows: 10, cols: 60 %>
+    <br>
+    <br>
+    <%= submit_tag 'Send', class: 'actions' %>
+    <br>
+<% end %>
